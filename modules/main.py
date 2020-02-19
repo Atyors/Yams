@@ -1,6 +1,6 @@
 ''' Gestion principale d'un jeu de Yams, module principal.
 
-    @author: Romain Thieuw
+    @author: Rouyan Thi
 '''
 
 

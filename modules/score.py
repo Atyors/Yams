@@ -1,6 +1,6 @@
 '''Module de score.
 
-    @author: Romain Thieuw
+    @author: Rouyan Thi
 '''
 
 ##===============================================
@@ -174,16 +174,6 @@ def grande(liste_des):
         return 40
     else:
         return False
-
-
-def rien(liste_des):
-    liste_des.sort()
-    neededV1 = [1, 2, 3, 5, 6]
-    neededV2 = [1, 2, 4, 5, 6]
-
-    if liste_des == neededV1 or liste_des == neededV2:
-        return 40
-    return False
 
 
 def yams(liste_des):

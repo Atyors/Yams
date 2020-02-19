@@ -1,7 +1,7 @@
 ''' 
     Module d'interface du Yams
 
-    @author: Romain Thieuw
+    @author: Rouyan Thi
 '''
 
 from modules.score import *
@@ -94,7 +94,6 @@ def redem():
     var_J1_Full.set("")
     var_J1_Petite.set("")
     var_J1_Grande.set("")
-    var_J1_Rien.set("")
     var_J1_Yams.set("")
     var_J1_Chance.set("")
     var_J1_TotalInf.set("")
@@ -112,7 +111,6 @@ def redem():
     var_J2_Full.set("")
     var_J2_Petite.set("")
     var_J2_Grande.set("")
-    var_J2_Rien.set("")
     var_J2_Yams.set("")
     var_J2_Chance.set("")
     var_J2_TotalInf.set("")
@@ -203,7 +201,6 @@ def button_off():
     Bfull.config(state=DISABLED)
     Bpetite.config(state=DISABLED)
     Bgrande.config(state=DISABLED)
-    Brien.config(state=DISABLED)
     Byams.config(state=DISABLED)
     Bchance.config(state=DISABLED)
         
@@ -241,7 +238,6 @@ def joueur_courant():
         LJ2_Full.config(fg=current)
         LJ2_Petite.config(fg=current)
         LJ2_Grande.config(fg=current)
-        LJ2_Rien.config(fg=current)
         LJ2_Yams.config(fg=current)
         LJ2_Chance.config(fg=current)
         LJ2_TotInf.config(fg=current)
@@ -262,7 +258,6 @@ def joueur_courant():
         LJ1_Full.config(fg=current)
         LJ1_Petite.config(fg=current)
         LJ1_Grande.config(fg=current)
-        LJ1_Rien.config(fg=current)
         LJ1_Yams.config(fg=current)
         LJ1_Chance.config(fg=current)
         LJ1_TotInf.config(fg=current)
@@ -283,7 +278,6 @@ def joueur_courant():
         LJ1_Full.config(fg=current)
         LJ1_Petite.config(fg=current)
         LJ1_Grande.config(fg=current)
-        LJ1_Rien.config(fg=current)
         LJ1_Yams.config(fg=current)
         LJ1_Chance.config(fg=current)
         LJ1_TotInf.config(fg=current)
@@ -304,7 +298,6 @@ def joueur_courant():
         LJ2_Full.config(fg=current)
         LJ2_Petite.config(fg=current)
         LJ2_Grande.config(fg=current)
-        LJ2_Rien.config(fg=current)
         LJ2_Yams.config(fg=current)
         LJ2_Chance.config(fg=current)
         LJ2_TotInf.config(fg=current)
@@ -577,29 +570,6 @@ def add_grande():
     chg_tour()
 
 
-def add_rien():
-    global played
-    if turn % 2 == 0 and played == 1:
-        if rien(des) and var_J1_Rien.get() == "":
-            var_J1_Rien.set(rien(des))
-            played = 0
-        else:
-            choix = messagebox.askquestion("Continuer ?", "Vos dés ne permettent pas d'effectuer cette valeur,\nêtes-vous sûr de vouloir y mettre 0 ?")
-            if choix == "yes":
-                var_J1_Rien.set(0)
-                played = 0
-    elif turn % 2 != 0 and played == 1:
-        if rien(des) and var_J2_Rien.get() == "":
-            var_J2_Rien.set(rien(des))
-            played = 0
-        else:
-            choix = messagebox.askquestion("Continuer ?", "Vos dés ne permettent pas d'effectuer cette valeur,\nêtes-vous sûr de vouloir y mettre 0 ?")
-            if choix == "yes":
-                var_J2_Rien.set(0)
-                played = 0
-    chg_tour()
-
-
 def add_yams():
     global played
     if turn % 2 == 0 and played == 1:
@@ -834,8 +804,6 @@ def checking():
         else: Bpetite.config(state=NORMAL)
         if var_J1_Grande.get() != "": Bgrande.config(state=DISABLED)
         else: Bgrande.config(state=NORMAL)
-        if var_J1_Rien.get() != "": Brien.config(state=DISABLED)
-        else: Brien.config(state=NORMAL)
         if var_J1_Yams.get() != "": Byams.config(state=DISABLED)
         else: Byams.config(state=NORMAL)
         if var_J1_Chance.get() != "": Bchance.config(state=DISABLED)
@@ -863,8 +831,6 @@ def checking():
         else: Bpetite.config(state=NORMAL)
         if var_J2_Grande.get() != "": Bgrande.config(state=DISABLED)
         else: Bgrande.config(state=NORMAL)
-        if var_J2_Rien.get() != "": Brien.config(state=DISABLED)
-        else: Brien.config(state=NORMAL)
         if var_J2_Yams.get() != "": Byams.config(state=DISABLED)
         else: Byams.config(state=NORMAL)
         if var_J2_Chance.get() != "": Bchance.config(state=DISABLED)
@@ -941,7 +907,6 @@ Bcarre = Button(Fline_2, text="CARRE", command=add_carre, font=fBo, width=tBo)
 Bfull = Button(Fline_3, text="FULL", command=add_full, font=fBo, width=tBo)
 Bpetite = Button(Fline_1, text="PETITE SUITE", command=add_petite, font=fBo, width=tBo)
 Bgrande= Button(Fline_2, text="GRANDE SUITE", command=add_grande, font=fBo, width=tBo)
-Brien= Button(Fline_2, text="RIEN", command=add_rien, font=fBo, width=tBo)
 Byams = Button(Fline_3, text="YAMS", command=add_yams, font=fBo, width=tBo)
 Bchance = Button(Fbout, text="CHANCE", command=add_chance, font=fBo, width=tBo)
 
@@ -966,7 +931,6 @@ Bcarre.pack(side=LEFT)
 Bfull.pack(side=LEFT)
 Bpetite.pack(side=LEFT)
 Bgrande.pack(side=LEFT)
-Brien.pack(side=LEFT)
 Byams.pack(side=LEFT)
 Bchance.pack()
 
@@ -1022,7 +986,6 @@ Label(Fscore_val, text="CARRE :", font=font_score, width=Tscore, anchor=E).pack(
 Label(Fscore_val, text="FULL :", font=font_score, width=Tscore, anchor=E).pack()
 Label(Fscore_val, text="PETITE SUITE :", font=font_score, width=Tscore, anchor=E).pack()
 Label(Fscore_val, text="GRANDE SUITE :", font=font_score, width=Tscore, anchor=E).pack()
-Label(Fscore_val, text="RIEN :", font=font_score, width=Tscore, anchor=E).pack()
 Label(Fscore_val, text="YAMS :", font=font_score, width=Tscore, anchor=E).pack()
 Label(Fscore_val, text="CHANCE :", font=font_score, width=Tscore, anchor=E).pack()
 Label(Fscore_val, text="TOTAL :", font=font_score, width=Tscore, anchor=E).pack()
@@ -1042,7 +1005,7 @@ LJ1.pack()
 var_J1_1, var_J1_2, var_J1_3, var_J1_4 = StringVar(), StringVar(), StringVar(), StringVar()
 var_J1_5, var_J1_6, var_J1_Bonus, var_J1_TotalSup = StringVar(), StringVar(), StringVar(), StringVar()
 var_J1_Brelan, var_J1_Carre, var_J1_Full, var_J1_Petite = StringVar(), StringVar(), StringVar(), StringVar()
-var_J1_Grande, var_J1_Rien, var_J1_Yams, var_J1_Chance, var_J1_TotalInf = StringVar(), StringVar(), StringVar(), StringVar(), StringVar()
+var_J1_Grande, var_J1_Yams, var_J1_Chance, var_J1_TotalInf = StringVar(), StringVar(), StringVar(), StringVar()
 var_J1_Total =StringVar()
 
 LJ1_1 = Label(Fscore_val1, textvariable=var_J1_1, font=font_score)
@@ -1073,8 +1036,6 @@ LJ1_Petite = Label(Fscore_val1, textvariable=var_J1_Petite, font=font_score)
 LJ1_Petite.pack()
 LJ1_Grande = Label(Fscore_val1, textvariable=var_J1_Grande, font=font_score)
 LJ1_Grande.pack()
-LJ1_Rien = Label(Fscore_val1, textvariable=var_J1_Rien, font=font_score)
-LJ1_Rien.pack()
 LJ1_Yams = Label(Fscore_val1, textvariable=var_J1_Yams, font=font_score)
 LJ1_Yams.pack()
 LJ1_Chance = Label(Fscore_val1, textvariable=var_J1_Chance, font=font_score)
@@ -1096,7 +1057,7 @@ LJ2.pack()
 var_J2_1, var_J2_2, var_J2_3, var_J2_4 = StringVar(), StringVar(), StringVar(), StringVar()
 var_J2_5, var_J2_6, var_J2_Bonus, var_J2_TotalSup = StringVar(), StringVar(), StringVar(), StringVar()
 var_J2_Brelan, var_J2_Carre, var_J2_Full, var_J2_Petite = StringVar(), StringVar(), StringVar(), StringVar()
-var_J2_Grande, var_J2_Rien, var_J2_Yams, var_J2_Chance, var_J2_TotalInf = StringVar(), StringVar(), StringVar(), StringVar(), StringVar()
+var_J2_Grande, var_J2_Yams, var_J2_Chance, var_J2_TotalInf = StringVar(), StringVar(), StringVar(), StringVar()
 var_J2_Total =StringVar()
 
 LJ2_1 = Label(Fscore_val2, textvariable=var_J2_1, font=font_score)
@@ -1127,8 +1088,6 @@ LJ2_Petite = Label(Fscore_val2, textvariable=var_J2_Petite, font=font_score)
 LJ2_Petite.pack()
 LJ2_Grande = Label(Fscore_val2, textvariable=var_J2_Grande, font=font_score)
 LJ2_Grande.pack()
-LJ2_Rien = Label(Fscore_val2, textvariable=var_J2_Rien, font=font_score)
-LJ2_Rien.pack()
 LJ2_Yams = Label(Fscore_val2, textvariable=var_J2_Yams, font=font_score)
 LJ2_Yams.pack()
 LJ2_Chance = Label(Fscore_val2, textvariable=var_J2_Chance, font=font_score)
